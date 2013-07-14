@@ -1,4 +1,4 @@
 angulardemorestful
 ==================
 
-Jjava REST service and AngularJs
+Java REST service and AngularJs
