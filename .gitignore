@@ -1,0 +1,10 @@
+# IntelliJ
+.idea/workspace.xml
+.idea/tasks.xml
+*.isw
+
+# Maven
+target/**
+log/**
+
+.*~

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ngdemo:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ngdemo.war">
+      <element id="artifact" artifact-name="ngdemo:war exploded" />
+    </root>
+  </artifact>
+</component>
