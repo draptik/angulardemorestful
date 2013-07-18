@@ -17,7 +17,7 @@
             <version>2.1</version>
         </dependency>
 
-        <!-- RESTful web service: Jersey -->
+        <!-- RESTful web service: Jersey ====================================== -->
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
@@ -34,8 +34,35 @@
             <version>1.17.1</version>
         </dependency>
 
+        <!-- Guice ============================================================= -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>3.0</version>
+        </dependency>
 
-        <!-- Unit testing -->
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey.contribs</groupId>
+            <artifactId>jersey-guice</artifactId>
+            <version>1.17.1</version>
+        </dependency>
+
+        <!-- Required for bypassing web.xml via Guice. Used in TestServlet.java -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- Unit testing ====================================================== -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

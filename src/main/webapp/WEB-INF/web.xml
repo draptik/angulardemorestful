@@ -7,31 +7,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
     <display-name>Restful Web Application</display-name>
 
-    <servlet>
-        <servlet-name>jersey-serlvet</servlet-name>
+    <filter>
+        <filter-name>guiceFilter</filter-name>
+        <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+    </filter>
 
-        <servlet-class>
-            com.sun.jersey.spi.container.servlet.ServletContainer
-        </servlet-class>
+    <filter-mapping>
+        <filter-name>guiceFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>ngdemo.rest</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
-            <param-value>true</param-value>
-        </init-param>
-
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>jersey-serlvet</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
-    </servlet-mapping>
+    <listener>
+        <listener-class>ngdemo.infrastructure.NgDemoApplicationSetup</listener-class>
+    </listener>
 
 </web-app>
