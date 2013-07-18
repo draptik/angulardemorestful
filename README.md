@@ -1,8 +1,6 @@
 angulardemorestful
 ==================
 
-Java REST service and AngularJs
-
 This is a sample project for some of my blog posts at [http://draptik.github.io](http://draptik.github.io).
 
 ## Git instructions for specific blog posts
