@@ -25,6 +25,9 @@
         <module name="ngdemo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ngdemo" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

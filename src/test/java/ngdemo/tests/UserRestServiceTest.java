@@ -12,9 +12,9 @@ import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory;
 import com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory;
-import ngdemo.service.contract.UserFactory;
+import ngdemo.repositories.contract.UserRepository;
+import ngdemo.repositories.impl.UserRepositoryImpl;
 import ngdemo.service.contract.UserService;
-import ngdemo.service.impl.UserFactoryImpl;
 import ngdemo.service.impl.UserServiceImpl;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.junit.After;
@@ -28,7 +28,7 @@ import java.net.URI;
 
 import static junit.framework.Assert.assertEquals;
 
-public class UserRestServiceTests {
+public class UserRestServiceTest {
 
     static final URI BASE_URI = getBaseURI();
     HttpServer server;
@@ -45,7 +45,7 @@ public class UserRestServiceTests {
             @Override
             protected void configureServlets() {
                 bind(UserService.class).to(UserServiceImpl.class);
-                bind(UserFactory.class).to(UserFactoryImpl.class);
+                bind(UserRepository.class).to(UserRepositoryImpl.class);
             }
         });
 
@@ -77,12 +77,12 @@ public class UserRestServiceTests {
         assertEquals("{\"firstName\":\"JonFromREST\",\"lastName\":\"DoeFromREST\"}", text);
     }
 
-
-    public static void main(String[] args) throws Exception {
-        UserRestServiceTests test = new UserRestServiceTests();
-        test.startServer();
-        //noinspection ResultOfMethodCallIgnored
-        System.in.read(); // hit enter to stop the server
-        test.server.stop();
-    }
+//    @Ignore
+//    public static void main(String[] args) throws Exception {
+//        UserRestServiceTest test = new UserRestServiceTest();
+//        test.startServer();
+//        //noinspection ResultOfMethodCallIgnored
+//        System.in.read(); // hit enter to stop the server
+//        test.server.stop();
+//    }
 }

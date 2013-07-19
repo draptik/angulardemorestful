@@ -3,7 +3,7 @@ package ngdemo.service.impl;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import ngdemo.domain.User;
-import ngdemo.service.contract.UserFactory;
+import ngdemo.repositories.contract.UserRepository;
 import ngdemo.service.contract.UserService;
 
 import java.util.List;
@@ -11,21 +11,21 @@ import java.util.List;
 @Singleton
 public class UserServiceImpl implements UserService {
 
-    private final UserFactory userFactory;
+    private final UserRepository userRepository;
 
     @Inject
-    public UserServiceImpl(UserFactory userFactory) {
-        this.userFactory = userFactory;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public List<User> getDefaultUsers() {
-        return this.userFactory.createUsers();
+        return this.userRepository.getAllUsers();
     }
 
     @Override
     public User getDefaultUser() {
-        return this.userFactory.createUser();
+        return this.userRepository.getDefaultUser();
     }
 
 }
