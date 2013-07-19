@@ -5,7 +5,7 @@
 var services = angular.module('ngdemo.services', ['ngResource']);
 
 services.factory('UserFactory', function ($resource) {
-    return $resource('/ngdemo/rest/users', {}, {
+    return $resource('/ngdemo/web/dummy', {}, {
         query: {
             method: 'GET',
             params: {},

@@ -4,22 +4,19 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 
 import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
 
-public class UserRestServiceTest {
+public class DummyRestServiceTest {
 
     private final ServerProvider serverProvider;
     private final ClientProvider clientProvider;
-    private WebResource webService;
 
-    public UserRestServiceTest() {
+    public DummyRestServiceTest() {
         serverProvider = new ServerProvider();
         clientProvider = new ClientProvider(serverProvider);
     }
@@ -27,7 +24,6 @@ public class UserRestServiceTest {
     @Before
     public void startServer() throws IOException {
         serverProvider.createServer();
-        webService = clientProvider.getWebResource();
     }
 
     @After
@@ -35,20 +31,25 @@ public class UserRestServiceTest {
         serverProvider.stop();
     }
 
-    @Ignore
     @Test
-    public void testGetAllUsersShouldReturnSuccessStatusAndCorrectData() throws IOException {
-        ClientResponse resp = webService.path("web").path("users")
+    public void testGetDefaultUser() throws IOException {
+        WebResource service = clientProvider.getWebResource();
+        ClientResponse resp = service.path("web").path("dummy")
                 .accept(MediaType.APPLICATION_JSON)
                 .get(ClientResponse.class);
         System.out.println("Got stuff: " + resp);
-        String actual = resp.getEntity(String.class);
+        String text = resp.getEntity(String.class);
 
         assertEquals(200, resp.getStatus());
-        String expectedUser1 = "{\"firstName\":\"JonFromREST1\",\"lastName\":\"DoeFromREST1\"}";
-        String expectedUser2 = "{\"firstName\":\"JonFromREST2\",\"lastName\":\"DoeFromREST2\"}";
-
-        assertTrue(actual.contains(expectedUser1));
-        assertTrue(actual.contains(expectedUser2));
+        assertEquals("{\"firstName\":\"JonFromREST\",\"lastName\":\"DoeFromREST\"}", text);
     }
+
+//    @Ignore
+//    public static void main(String[] args) throws Exception {
+//        UserRestServiceTest test = new UserRestServiceTest();
+//        test.startServer();
+//        //noinspection ResultOfMethodCallIgnored
+//        System.in.read(); // hit enter to stop the server
+//        test.server.stop();
+//    }
 }

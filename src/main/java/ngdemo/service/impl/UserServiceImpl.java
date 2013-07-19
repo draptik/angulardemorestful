@@ -2,7 +2,6 @@ package ngdemo.service.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import ngdemo.domain.User;
 import ngdemo.repositories.contract.UserRepository;
 import ngdemo.service.contract.UserService;
 
@@ -19,13 +18,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getDefaultUsers() {
-        return this.userRepository.getAllUsers();
-    }
-
-    @Override
-    public User getDefaultUser() {
-        return this.userRepository.getDefaultUser();
+    public List getAllUsers() {
+        return this.userRepository.getAll();
     }
 
 }

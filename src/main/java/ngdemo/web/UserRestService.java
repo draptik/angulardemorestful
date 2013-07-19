@@ -1,4 +1,4 @@
-package ngdemo.rest;
+package ngdemo.web;
 
 import com.google.inject.Inject;
 import ngdemo.domain.User;
@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 
 @Path("/users")
@@ -22,7 +23,7 @@ public class UserRestService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public User getDefaultUserInJSON() {
-        return userService.getDefaultUser();
+    public List<User> getDefaultUserInJSON() {
+        return userService.getAllUsers();
     }
 }
