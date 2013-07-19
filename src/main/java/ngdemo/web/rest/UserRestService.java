@@ -1,4 +1,4 @@
-package ngdemo.web;
+package ngdemo.web.rest;
 
 import com.google.inject.Inject;
 import ngdemo.domain.User;
