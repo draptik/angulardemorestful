@@ -8,13 +8,15 @@ import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
-// This is the entry point for Guice Dependency Injection when called from a servlet container using web.xml
-//
-// You should have something similar in your web.xml:  s
-//
-//      <listener>
-//              <listener-class>ngdemo.infrastructure.NgDemoApplicationSetup</listener-class>
-//      </listener>
+/**
+ * This is the entry point for Guice Dependency Injection when called from a servlet container using web.xml
+ *
+ * You should have something similar in your web.xml:
+ *
+ *      <listener>
+ *              <listener-class>ngdemo.infrastructure.NgDemoApplicationSetup</listener-class>
+ *      </listener>
+ */
 public class NgDemoApplicationSetup extends GuiceServletContextListener {
 
     @Override
