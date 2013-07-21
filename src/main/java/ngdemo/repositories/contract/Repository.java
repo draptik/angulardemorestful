@@ -2,8 +2,9 @@ package ngdemo.repositories.contract;
 
 import java.util.List;
 
-public interface Repository<T, TId> {
-    List<? extends T> getAll();
+public interface Repository<T> {
 
-    T getById(TId id);
+    List<T> getAll();
+
+    T getById(String id);
 }

@@ -1,7 +1,9 @@
-package ngdemo.tests;
+package ngdemo.tests.integration.web;
 
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import ngdemo.tests.integration.web.infrastructure.ClientProvider;
+import ngdemo.tests.integration.web.infrastructure.ServerProvider;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

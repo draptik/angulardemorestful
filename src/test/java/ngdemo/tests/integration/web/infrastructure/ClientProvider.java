@@ -1,4 +1,4 @@
-package ngdemo.tests;
+package ngdemo.tests.integration.web.infrastructure;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;

@@ -2,6 +2,7 @@ package ngdemo.service.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import ngdemo.domain.User;
 import ngdemo.repositories.contract.UserRepository;
 import ngdemo.service.contract.UserService;
 
@@ -22,4 +23,8 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.getAll();
     }
 
+    @Override
+    public User getById(String id) {
+        return this.userRepository.getById(id);
+    }
 }

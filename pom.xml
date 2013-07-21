@@ -72,6 +72,14 @@
             <version>${jersey.version}</version>
         </dependency>
 
+        <!-- Jackson (mapping JSON lists for AngularJS) ======================== -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.12</version>
+        </dependency>
+
+
         <!-- Guice ============================================================= -->
         <dependency>
             <groupId>com.google.inject</groupId>

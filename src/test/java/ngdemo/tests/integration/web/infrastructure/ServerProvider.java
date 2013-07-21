@@ -1,7 +1,8 @@
-package ngdemo.tests;
+package ngdemo.tests.integration.web.infrastructure;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Scopes;
 import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 import com.sun.jersey.api.core.PackagesResourceConfig;
@@ -10,12 +11,13 @@ import com.sun.jersey.core.spi.component.ioc.IoCComponentProviderFactory;
 import com.sun.jersey.guice.spi.container.GuiceComponentProviderFactory;
 import ngdemo.repositories.contract.DummyRepository;
 import ngdemo.repositories.contract.UserRepository;
-import ngdemo.repositories.impl.DummyRepositoryImpl;
-import ngdemo.repositories.impl.UserRepositoryImpl;
+import ngdemo.repositories.impl.mock.DummyMockRepositoryImpl;
+import ngdemo.repositories.impl.mock.UserMockRepositoryImpl;
 import ngdemo.service.contract.DummyService;
 import ngdemo.service.contract.UserService;
 import ngdemo.service.impl.DummyServiceImpl;
 import ngdemo.service.impl.UserServiceImpl;
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.glassfish.grizzly.http.server.HttpServer;
 
 import javax.ws.rs.core.UriBuilder;
@@ -38,9 +40,12 @@ public class ServerProvider {
             @Override
             protected void configureServlets() {
                 bind(UserService.class).to(UserServiceImpl.class);
-                bind(UserRepository.class).to(UserRepositoryImpl.class);
+                bind(UserRepository.class).to(UserMockRepositoryImpl.class);
                 bind(DummyService.class).to(DummyServiceImpl.class);
-                bind(DummyRepository.class).to(DummyRepositoryImpl.class);
+                bind(DummyRepository.class).to(DummyMockRepositoryImpl.class);
+
+                // hook Jackson into Jersey as the POJO <-> JSON mapper
+                bind(JacksonJsonProvider.class).in(Scopes.SINGLETON);
             }
         });
 

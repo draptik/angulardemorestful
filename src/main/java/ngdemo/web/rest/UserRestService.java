@@ -8,9 +8,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.Provider;
 import java.util.List;
 
-
+@Provider
 @Path("/users")
 public class UserRestService {
 
@@ -23,7 +24,13 @@ public class UserRestService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getDefaultUserInJSON() {
+    public List<User> getAllUsersInJSON() {
         return userService.getAllUsers();
     }
+//
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public User getUserById(@PathParam("id") String id) {
+//        return userService.getById(id);
+//    }
 }

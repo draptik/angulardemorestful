@@ -2,7 +2,6 @@
 
 /* Controllers */
 
-
 var app = angular.module('ngdemo.controllers', []);
 
 
@@ -16,9 +15,13 @@ app.run(function ($rootScope, $templateCache) {
 });
 
 
-app.controller('MyCtrl1', ['$scope', 'UserFactory', function ($scope, UserFactory) {
+app.controller('MyCtrl1', ['$scope', 'DummyFactory', function ($scope, DummyFactory) {
     $scope.bla = 'bla from controller';
-    UserFactory.get({}, function (userFactory) {
-        $scope.firstname = userFactory.firstName;
+    DummyFactory.get({}, function (dummyFactory) {
+        $scope.firstname = dummyFactory.firstName;
     })
+}]);
+
+app.controller('MyCtrl2', ['$scope', 'UserFactory', function ($scope, UserFactory) {
+    $scope.users = UserFactory.query();
 }]);

@@ -37,11 +37,11 @@ public class ModuleFactory {
                 super.configureServlets();
 
                 // Configuring Jersey via Guice:
-                ResourceConfig resourceConfig = new PackagesResourceConfig("ngdemo/web");
+                ResourceConfig resourceConfig = new PackagesResourceConfig("ngdemo/web/rest");
                 for (Class<?> resource : resourceConfig.getClasses()) {
                     bind(resource);
                 }
-                serve("/web/*").with(GuiceContainer.class);
+                serve("/web/rest/*").with(GuiceContainer.class);
             }
         };
     }
