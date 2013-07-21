@@ -1,6 +1,7 @@
 package ngdemo.repositories.impl.mock;
 
 import com.google.inject.Singleton;
+import ngdemo.domain.NullUser;
 import ngdemo.domain.User;
 import ngdemo.repositories.contract.UserRepository;
 
@@ -16,8 +17,13 @@ public class UserMockRepositoryImpl extends GenericMockRepository<User> implemen
         this.users = this.createUsers();
     }
 
-    public User getById(String id) {
-        return new User();
+    public User getById(int id) {
+        for (User u : this.users) {
+            if (u.getId() == id) {
+                return u;
+            }
+        }
+        return new NullUser();
     }
 
     public List<User> getAll() {
@@ -28,6 +34,7 @@ public class UserMockRepositoryImpl extends GenericMockRepository<User> implemen
         int numberOfUsers = 10;
         for (int i = 0; i < numberOfUsers; i++) {
             User user = new User();
+            user.setId(i + 1);
             user.setFirstName("Foo" + (i + 1));
             user.setLastName("Bar" + (i + 1));
             this.users.add(user);

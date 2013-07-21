@@ -6,5 +6,5 @@ public interface Repository<T> {
 
     List<T> getAll();
 
-    T getById(String id);
+    T getById(int id);
 }

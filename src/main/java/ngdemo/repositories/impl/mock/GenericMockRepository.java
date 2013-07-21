@@ -12,7 +12,7 @@ public abstract class GenericMockRepository<T> implements Repository<T> {
     }
 
     @Override
-    public T getById(String id) {
+    public T getById(int id) {
         return (T) null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

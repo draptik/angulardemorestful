@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 // JAX-RS supports an automatic mapping from JAXB annotated class to XML and JSON
 public class User {
 
+    private int id;
     private String firstName;
     private String lastName;
 
@@ -24,5 +25,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
