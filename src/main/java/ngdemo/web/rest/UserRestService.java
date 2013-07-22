@@ -4,9 +4,7 @@ import com.google.inject.Inject;
 import ngdemo.domain.User;
 import ngdemo.service.contract.UserService;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -25,10 +23,18 @@ public class UserRestService {
     public List<User> getAllUsersInJSON() {
         return userService.getAllUsers();
     }
-//
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public User getUserById(@PathParam("id") int id) {
-//        return userService.getById(id);
-//    }
+
+    @GET
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUserById(@PathParam("id") int id) {
+        return userService.getById(id);
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public User create(User user) {
+        return userService.createNewUser(user);
+    }
 }

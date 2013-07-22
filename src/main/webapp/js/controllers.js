@@ -15,13 +15,13 @@ app.run(function ($rootScope, $templateCache) {
 });
 
 
-app.controller('MyCtrl1', ['$scope', 'DummyFactory', function ($scope, DummyFactory) {
+app.controller('DummyCtrl', ['$scope', 'DummyFactory', function ($scope, DummyFactory) {
     $scope.bla = 'bla from controller';
     DummyFactory.get({}, function (dummyFactory) {
         $scope.firstname = dummyFactory.firstName;
     })
 }]);
 
-app.controller('MyCtrl2', ['$scope', 'UserFactory', function ($scope, UserFactory) {
+app.controller('UserListCtrl', ['$scope', 'UserFactory', function ($scope, UserFactory) {
     $scope.users = UserFactory.query();
 }]);

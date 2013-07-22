@@ -2,6 +2,7 @@ package ngdemo.tests.integration.web;
 
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import ngdemo.domain.User;
 import ngdemo.tests.integration.web.infrastructure.ClientProvider;
 import ngdemo.tests.integration.web.infrastructure.ServerProvider;
 import org.junit.After;
@@ -73,5 +74,53 @@ public class UserRestServiceTest {
 
         assertTrue(actual.contains(expectedUser1));
         assertTrue(actual.contains(expectedUser10));
+    }
+
+    @Test
+    public void testGetUserByIdShouldReturnSuccessStatus() throws IOException {
+        ClientResponse resp = webService.path("web").path("users/1")
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+        System.out.println("Got stuff: " + resp);
+
+        assertEquals(200, resp.getStatus());
+    }
+
+    @Test
+    public void testGetUserByIdOneShouldReturnFirstUser() throws IOException {
+        ClientResponse resp = webService.path("web").path("users/1")
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+        System.out.println("Got stuff: " + resp);
+        String actual = resp.getEntity(String.class);
+        String expectedUser1 = "{\"id\":1,\"firstName\":\"Foo1\",\"lastName\":\"Bar1\"}";
+
+        assertTrue(actual.equals(expectedUser1));
+    }
+
+    @Test
+    public void testCreateUserShouldReturnNewUserWithCorrectId() throws IOException {
+        /*
+              $ curl -i -X POST -H 'Content-Type: application/json' -d '{"id":0, "firstName":"XX", "lastName":"YY"}' http://localhost:8080/ngdemo/web/users
+
+                HTTP/1.1 200 OK
+                Server: Apache-Coyote/1.1
+                Content-Type: application/json
+                Transfer-Encoding: chunked
+                Date: Mon, 22 Jul 2013 09:12:38 GMT
+
+                {"id":12,"firstName":"XX","lastName":"YY"}
+         */
+
+        ClientResponse resp = webService.path("web").path("users")
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .accept(MediaType.APPLICATION_JSON)
+                .post(ClientResponse.class, new User());
+
+        System.out.println("Got stuff: " + resp);
+        String actual = resp.getEntity(String.class);
+        String expectedId = "\"id\":11";
+
+        assertTrue(actual.contains(expectedId));
     }
 }

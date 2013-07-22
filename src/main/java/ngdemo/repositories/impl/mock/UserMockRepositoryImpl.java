@@ -1,5 +1,7 @@
 package ngdemo.repositories.impl.mock;
 
+import com.google.common.collect.Ordering;
+import com.google.common.primitives.Ints;
 import com.google.inject.Singleton;
 import ngdemo.domain.NullUser;
 import ngdemo.domain.User;
@@ -30,6 +32,13 @@ public class UserMockRepositoryImpl extends GenericMockRepository<User> implemen
         return this.users;
     }
 
+    @Override
+    public User create(User user) {
+        user.setId(getCurrentMaxId() + 1);
+        this.users.add(user);
+        return user;
+    }
+
     private List<User> createUsers() {
         int numberOfUsers = 10;
         for (int i = 0; i < numberOfUsers; i++) {
@@ -40,5 +49,15 @@ public class UserMockRepositoryImpl extends GenericMockRepository<User> implemen
             this.users.add(user);
         }
         return this.users;
+    }
+
+    private int getCurrentMaxId() {
+        Ordering<User> ordering = new Ordering<User>() {
+            @Override
+            public int compare(User left, User right) {
+                return Ints.compare(left.getId(), right.getId());
+            }
+        };
+        return ordering.max(this.users).getId();
     }
 }

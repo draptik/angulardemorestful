@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>1.17.1</jersey.version>
         <guice.version>3.0</guice.version>
+        <guava.version>r09</guava.version>
     </properties>
 
     <build>
@@ -48,7 +49,15 @@
 
     <dependencies>
 
-        <!-- javax: XML binding -->
+        <!-- GUAVA =============================================================-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
+
+        <!-- javax: XML binding =============================================== -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -56,6 +65,12 @@
         </dependency>
 
         <!-- RESTful web service: Jersey ====================================== -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
