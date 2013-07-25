@@ -22,8 +22,11 @@ app.controller('DummyCtrl', ['$scope', 'DummyFactory', function ($scope, DummyFa
     })
 }]);
 
-app.controller('UserListCtrl', ['$scope', 'UsersFactory', function ($scope, UsersFactory) {
+app.controller('UserListCtrl', ['$scope', 'UsersFactory', '$location', function ($scope, UsersFactory, $location) {
     $scope.users = UsersFactory.query();
+    $scope.editUser = function (userId) {
+        $location.path('/user-detail/' + userId);
+    }
 }]);
 
 app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$location', function ($scope, $routeParams, UserFactory, $location) {
