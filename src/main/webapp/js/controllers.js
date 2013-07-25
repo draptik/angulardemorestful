@@ -22,17 +22,17 @@ app.controller('DummyCtrl', ['$scope', 'DummyFactory', function ($scope, DummyFa
     })
 }]);
 
-app.controller('UserListCtrl', ['$scope', 'UserFactory', function ($scope, UserFactory) {
-    $scope.users = UserFactory.query();
+app.controller('UserListCtrl', ['$scope', 'UsersFactory', function ($scope, UsersFactory) {
+    $scope.users = UsersFactory.query();
 }]);
 
 app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', function ($scope, $routeParams, UserFactory) {
-    $scope.user = UserFactory.get({id: $routeParams.id});
+    $scope.user = UserFactory.show({id: $routeParams.id});
 }]);
 
-app.controller('UserCreationCtrl', ['$scope', 'UserFactory', function ($scope, UserFactory) {
+app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', function ($scope, UsersFactory) {
     // '$scope.createNewUser' is the event handler
     $scope.createNewUser = function () {
-        UserFactory.save($scope.user);
+        UsersFactory.create($scope.user);
     }
 }]);
