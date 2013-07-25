@@ -33,4 +33,19 @@ public class UserServiceImpl implements UserService {
         User u = this.userRepository.create(user);
         return u;
     }
+
+    @Override
+    public User update(User user) {
+        return this.userRepository.update(user);
+    }
+
+    @Override
+    public void remove(int id) {
+        this.userRepository.remove(id);
+    }
+
+    @Override
+    public int getNumberOfUsers() {
+        return this.userRepository.getNumberOfUsers();
+    }
 }

@@ -123,4 +123,74 @@ public class UserRestServiceTest {
 
         assertTrue(actual.contains(expectedId));
     }
+
+    @Test
+    public void testUpdateUserShouldReturnUpdatedUser() throws IOException {
+
+        User updateUser = new User();
+        updateUser.setId(1);
+        updateUser.setFirstName("XX");
+        updateUser.setLastName("YY");
+
+        ClientResponse resp = webService.path("web").path("users/1")
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .accept(MediaType.APPLICATION_JSON)
+                .put(ClientResponse.class, updateUser);
+
+        System.out.println("Got stuff: " + resp);
+        String actual = resp.getEntity(String.class);
+        String expectedId = "\"id\":1";
+        String expectedFirstNam = "\"firstName\":\"XX\"";
+        String expectedLastNam = "\"lastName\":\"YY\"";
+
+        assertTrue(actual.contains(expectedId));
+        assertTrue(actual.contains(expectedFirstNam));
+        assertTrue(actual.contains(expectedLastNam));
+    }
+
+    @Test
+    public void testGetNumberOfUserShouldReturnSuccessStatusAndCorrectNumber() throws IOException {
+
+        String actual = getNumberOfUsers();
+
+        String expectedNumberOfUsers = "10";
+        assertTrue(actual.equals(expectedNumberOfUsers));
+    }
+
+    private String getNumberOfUsers() {
+        ClientResponse resp = webService.path("web").path("users/numberOfUsers")
+                .accept(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+
+        System.out.println("Got stuff: " + resp);
+        assertEquals(200, resp.getStatus());
+        return resp.getEntity(String.class);
+    }
+
+    @Test
+    public void testRemoveUserShouldReturnSuccessStatus() throws IOException {
+
+        ClientResponse resp = webService.path("web").path("users/1")
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+
+        System.out.println("Got stuff: " + resp);
+        assertEquals(204, resp.getStatus());  // 204: no content
+    }
+
+    @Test
+    public void testRemoveUserShouldDecreaseNumberOfUsersByOne() throws IOException {
+
+        int numberOfUsersBefore = Integer.parseInt(getNumberOfUsers());
+
+        webService.path("web").path("users/1")
+                .type(MediaType.APPLICATION_JSON_TYPE)
+                .accept(MediaType.APPLICATION_JSON)
+                .delete(ClientResponse.class);
+
+        int numberOfUsersAfter = Integer.parseInt(getNumberOfUsers());
+
+        assertTrue(numberOfUsersAfter == numberOfUsersBefore - 1);
+    }
 }

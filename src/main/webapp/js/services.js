@@ -28,11 +28,11 @@ services.factory('DummyFactory', function ($resource) {
 });
 
 services.factory('UserFactory', function ($resource) {
-    return $resource('/ngdemo/web/users', {}, {
-        query: {
-            method: 'GET',
-            params: {},
-            isArray: true
-        }
+    return $resource('/ngdemo/web/users/:id', {}, {
+        get: { method: 'GET' },
+        query: { method: 'GET', isArray: true },
+        save: { method: 'POST' },
+        update: { method: 'PUT', params: {id: '@id'} },
+        remove: {method: 'DELETE' }
     })
 });
