@@ -1,13 +1,10 @@
 <div>
     <ul>
         <li ng-repeat="user in users">
-
-            <p>User ID: {{ user.id }}</p>
-
-            <p>First name: {{ user.firstName }}</p>
-
-            <p>Last name: {{ user.lastName }}</p>
-
+            <p>First name: {{ user.firstName }}
+                Last name: {{ user.lastName }}
+                <a href="#/user-detail/{{ user.id }}" class="btn btn-small btn-primary">edit</a>
+            </p>
         </li>
     </ul>
 </div>

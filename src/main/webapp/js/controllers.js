@@ -26,8 +26,12 @@ app.controller('UserListCtrl', ['$scope', 'UsersFactory', function ($scope, User
     $scope.users = UsersFactory.query();
 }]);
 
-app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', function ($scope, $routeParams, UserFactory) {
+app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$location', function ($scope, $routeParams, UserFactory, $location) {
     $scope.user = UserFactory.show({id: $routeParams.id});
+    $scope.updateUser = function () {
+        UserFactory.update($scope.user);
+        $location.path('/user-list');
+    }
 }]);
 
 app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', function ($scope, UsersFactory) {
