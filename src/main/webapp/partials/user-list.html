@@ -4,6 +4,7 @@
             <p>First name: {{ user.firstName }}
                 Last name: {{ user.lastName }}
                 <a ng-click="editUser(user.id)" class="btn btn-small btn-primary">edit</a>
+                <a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">delete</a>
             </p>
         </li>
     </ul>

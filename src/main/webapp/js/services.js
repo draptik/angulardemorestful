@@ -19,11 +19,7 @@ var services = angular.module('ngdemo.services', ['ngResource']);
 
 services.factory('DummyFactory', function ($resource) {
     return $resource('/ngdemo/web/dummy', {}, {
-        query: {
-            method: 'GET',
-            params: {},
-            isArray: false
-        }
+        query: { method: 'GET', params: {}, isArray: false }
     })
 });
 
@@ -38,6 +34,6 @@ services.factory('UserFactory', function ($resource) {
     return $resource('/ngdemo/web/users/:id', {}, {
         show: { method: 'GET' },
         update: { method: 'PUT', params: {id: '@id'} },
-        destroy: {method: 'DELETE' }
+        delete: { method: 'DELETE', params: {id: '@id'} }
     })
 });
