@@ -1,10 +1,14 @@
 <div>
     <h1>User detail</h1>
 
-    <div>
-        <input type="text" ng-model="user.firstName"/>
-        <input type="text" ng-model="user.lastName"/>
-        <a ng-click="updateUser()" class="btn btn-small btn-primary">update user</a>
-    </div>
+    <form novalidate="novalidate" class="simple-form">
+        <div>
+            <input type="text" ng-model="user.firstName"/>
+            <input type="text" ng-model="user.lastName"/>
+            <a ng-click="cancel()" class="btn btn-small">cancel</a>
+            <a ng-click="updateUser()" class="btn btn-small btn-primary">update user</a>
+        </div>
+    </form>
+
 
 </div>

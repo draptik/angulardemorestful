@@ -37,6 +37,8 @@ app.controller('UserListCtrl', ['$scope', 'UsersFactory', 'UserFactory', '$locat
             UserFactory.delete({ id: userId });
             $scope.users = UsersFactory.query();
         }
+
+        $scope.users = UsersFactory.query();
     }]);
 
 app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$location',
@@ -47,6 +49,11 @@ app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$loc
         // callback for ng-click 'updateUser':
         $scope.updateUser = function () {
             UserFactory.update($scope.user);
+            $location.path('/user-list');
+        }
+
+        // callback for ng-click 'cancel':
+        $scope.cancel = function () {
             $location.path('/user-list');
         }
     }]);
