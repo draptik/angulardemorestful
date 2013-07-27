@@ -1,11 +1,21 @@
 <div>
-    <ul>
-        <li ng-repeat="user in users">
-            <p>First name: {{ user.firstName }}
-                Last name: {{ user.lastName }}
-                <a ng-click="editUser(user.id)" class="btn btn-small btn-primary">edit</a>
-                <a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">delete</a>
-            </p>
-        </li>
-    </ul>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th style="width:20px;">&nbsp;</th>
+            <th style="width:20px;">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td><a ng-click="editUser(user.id)" class="btn btn-small btn-primary">edit</a></td>
+            <td><a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a ng-click="createNewUser()" class="btn btn-small">create new user</a>
 </div>

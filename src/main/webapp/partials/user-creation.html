@@ -1,9 +1,17 @@
 <div>
     <h1>Create a new user</h1>
 
-    <div>
-        <input type="text" ng-model="user.firstName"/>
-        <input type="text" ng-model="user.lastName"/>
-    </div>
-    <a ng-click="createNewUser()">create new user</a>
+    <form novalidate="novalidate" class="simple-form">
+        <div>
+            <label>
+                First name:
+                <input type="text" ng-model="user.firstName"/>
+            </label><br/>
+            <label>
+                Last name:
+                <input type="text" ng-model="user.lastName"/>
+            </label><br/>
+        </div>
+        <a ng-click="createNewUser()" class="btn btn-small btn-primary">create new user</a>
+    </form>
 </div>
