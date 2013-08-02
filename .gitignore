@@ -1,10 +1,10 @@
 # IntelliJ
-.idea/workspace.xml
-.idea/tasks.xml
-*.isw
+backend/java/.idea/workspace.xml
+backend/java/.idea/tasks.xml
+backend/java/*.isw
 
 # Maven
-target/**
-log/**
+backend/java/target/**
+backend/java/log/**
 
 .*~
