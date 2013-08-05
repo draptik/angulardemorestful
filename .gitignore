@@ -1,10 +1,14 @@
 # IntelliJ
-backend/java/.idea/workspace.xml
-backend/java/.idea/tasks.xml
-backend/java/*.isw
+backend/java-backend/.idea/workspace.xml
+backend/java-backend/.idea/tasks.xml
+backend/java-backend/*.isw
 
 # Maven
-backend/java/target/**
-backend/java/log/**
+backend/java-backend/target/**
+backend/java-backend/log/**
 
+# Sublime Text
+*.sublime-workspace
+
+# Misc
 .*~

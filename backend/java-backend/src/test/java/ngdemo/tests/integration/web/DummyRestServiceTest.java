@@ -43,7 +43,7 @@ public class DummyRestServiceTest {
         String text = resp.getEntity(String.class);
 
         assertEquals(200, resp.getStatus());
-        assertEquals("{\"firstName\":\"JonFromREST\",\"lastName\":\"DoeFromREST\"}", text);
+        assertEquals("{\"id\":0,\"firstName\":\"JonFromREST\",\"lastName\":\"DoeFromREST\"}", text);
     }
 
 //    @Ignore
