@@ -14,6 +14,7 @@
         <jersey.version>1.17.1</jersey.version>
         <guice.version>3.0</guice.version>
         <guava.version>r09</guava.version>
+        <tomcat.target.dev>${env.HOME}/development/servers/tomcat/apache-tomcat-7.0.42/webapps</tomcat.target.dev>
     </properties>
 
     <build>
@@ -42,6 +43,19 @@
                     </connectors>
                     <stopKey/>
                     <stopPort/>
+                </configuration>
+            </plugin>
+            <!-- WAR PLUGIN:
+                TODO: Not sure if patching the 'outputDirectory' is the Maven Way... but it works.
+                TODO: Maybe there is another Maven Lifecycle phase better fit for the job?
+                TODO: Goal: Deploy AND start Tomcat with a single command.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <outputDirectory>${tomcat.target.dev}</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

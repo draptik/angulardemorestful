@@ -18,19 +18,13 @@ In IntelliJ: Just start the application (after setting up Tomcat) in Run or Debu
 
 ## From local Tomcat
 
-### Create WAR file
+### Create WAR file and deploy to local Tomcat
 
 We can either 
 - double click the Maven `package` option from IntelliJ (in the Maven View) or 
 - run `mvn package` from the command line.
 
-Both will generate the file `target/ngdemo.war`.
-
-### Copy WAR file to `$DEVTOMCATHOME`
-
-`
-cp target/ngdemo.war $DEVTOMCATHOME/webapps/
-`
+Both will generate the file `$DEVTOMCATHOME/ngdemo.war`.
 
 ### Start Tomcat
 
