@@ -8,6 +8,7 @@ import com.google.inject.servlet.ServletModule;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import ngdemo.web.rest.ResponseCorsFilter;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 public class NgDemoApplicationSetup extends GuiceServletContextListener {
@@ -31,6 +32,8 @@ public class NgDemoApplicationSetup extends GuiceServletContextListener {
                 bind(JacksonJsonProvider.class).in(Scopes.SINGLETON);
 
                 serve("/web/*").with(GuiceContainer.class);
+
+                filter("/web/*").through(ResponseCorsFilter.class);
             }
         }, new UserModule());
     }
