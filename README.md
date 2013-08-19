@@ -36,3 +36,10 @@ git clone git@github.com:draptik/angulardemorestful.git
 cd angulardemorestful
 git checkout -f step4-angularjs-crud
 ```
+- [http://draptik.github.io/blog/2013/08/19/angularjs-and-cors/](http://draptik.github.io/blog/2013/08/19/angularjs-and-cors/)
+
+``` sh
+git clone git@github.com:draptik/angulardemorestful.git
+cd angulardemorestful
+git checkout -f step5-split-frontend-backend-cors
+```
