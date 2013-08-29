@@ -1,6 +1,5 @@
-*.sw*
-*~
-build/
-bin/
-node_modules/
-vendor/
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components

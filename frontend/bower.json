@@ -1,14 +1,18 @@
 {
   "name": "ngdemo",
-  "version": "0.1.0",
-  "devDependencies": {
+  "version": "0.0.0",
+  "dependencies": {
     "angular": "~1.0.7",
-    "angular-mocks": "~1.0.7",
-    "bootstrap": "~2.3.2",
-    "angular-bootstrap": "~0.3.0",
-    "angular-ui-router": "~0.0.1",
-    "angular-ui-utils": "~0.0.3",
-    "angular-resource": "~1.0.7"
+    "json3": "~3.2.4",
+    "jquery": "~1.9.1",
+    "bootstrap-sass": "~2.3.1",
+    "es5-shim": "~2.0.8",
+    "angular-resource": "~1.0.7",
+    "angular-cookies": "~1.0.7",
+    "angular-sanitize": "~1.0.7"
   },
-  "dependencies": {}
+  "devDependencies": {
+    "angular-mocks": "~1.0.7",
+    "angular-scenario": "~1.0.7"
+  }
 }

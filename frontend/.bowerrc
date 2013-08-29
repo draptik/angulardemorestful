@@ -1,5 +1,3 @@
 {
-  "directory": "vendor",
-  "json": "bower.json"
+    "directory": "app/bower_components"
 }
-
