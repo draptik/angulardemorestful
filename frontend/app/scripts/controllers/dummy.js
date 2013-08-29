@@ -1,7 +1,6 @@
+'use strict';
+
 angular.module('ngdemo')
-  .controller('DummyCtrl', function ($scope, DummyFactory) {
+  .controller('DummyCtrl', function ($scope) {
     $scope.bla = 'bla from controller';
-    DummyFactory.get({}, function (dummyFactory) {
-        $scope.firstname = dummyFactory.firstName;
-    })
   });
