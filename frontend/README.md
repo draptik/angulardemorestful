@@ -15,3 +15,10 @@ npm install
 
 ...installs all Grunt dependencies using the node package manager (npm). The file `packages.json` defines which packages are installed by npm. By default the packages are installed to `node_modules/` (in the current directory).
 
+
+## Usage
+
+``` sh
+grunt test
+grunt server
+```
