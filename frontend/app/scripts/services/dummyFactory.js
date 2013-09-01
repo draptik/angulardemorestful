@@ -1,16 +1,9 @@
 'use strict';
 
-angular.module('ngdemoApp.service', [])
-  .factory('dummyFactory', function () {
-    // Service logic
-    // ...
+var srv = angular.module('ngdemoApp.service', ['ngResource']);
 
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
+srv.factory('dummyFactory', function ($resource) {
+   return $resource('http://localhost\\:8080/ngdemo/web/dummy', {}, {
+    query: { method: 'GET', params: {} }
   });
+});
