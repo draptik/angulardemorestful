@@ -3,7 +3,7 @@
 describe('Service: dummyFactory', function () {
 
   // load the service's module
-  beforeEach(module('ngdemoApp'));
+  beforeEach(module('ngdemoApp.service'));
 
   // instantiate service
   var dummyFactory;
@@ -15,4 +15,7 @@ describe('Service: dummyFactory', function () {
     expect(!!dummyFactory).toBe(true);
   });
 
+  it('should return 42', function () {
+    expect(dummyFactory.someMethod()).toBe(42);
+  });
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ngdemoApp', [])
+angular.module('ngdemoApp', ['ngdemoApp.main', 'ngdemoApp.dummy', 'ngdemoApp.service'])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
   .when('/dummy', {templateUrl: 'views/dummy.html', controller: 'DummyCtrl'})

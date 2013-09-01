@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ngdemoApp')
+angular.module('ngdemoApp.service', [])
   .factory('dummyFactory', function () {
     // Service logic
     // ...
