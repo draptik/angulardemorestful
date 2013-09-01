@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('ngdemo', [])
+angular.module('ngdemoApp', [])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
   .when('/dummy', {templateUrl: 'views/dummy.html', controller: 'DummyCtrl'})
   .when('/', { templateUrl: 'views/main.html', controller: 'MainCtrl'})
+  .when('/user', {
+    templateUrl: 'views/user-list.html',
+    controller: 'UserListCtrl'
+  })
   .otherwise({ redirectTo: '/' });
 
   // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
