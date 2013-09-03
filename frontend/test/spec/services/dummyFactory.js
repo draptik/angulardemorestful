@@ -3,7 +3,7 @@
 describe('Service: dummyFactory', function () {
 
   // load the service's module
-  beforeEach(module('ngdemoApp.service'));
+  beforeEach(module('ngdemoApp.factory'));
 
   // instantiate service
   var dummyFactory;
