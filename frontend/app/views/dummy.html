@@ -3,6 +3,22 @@
         Result from Angular Controller is: {{ bla }}
     </p>
     <p>
-        Result from Angular Controller' Factory is: {{ foo }}
+        Result from REST Web Service is: {{ foo }}
     </p>
+    <p>
+      The result from REST Web Service should be: <b>JonFromREST</b>
+    </p>
+    <p>
+      If the result from REST Web Service is empty: Check that the backend REST Web Service is running and returning the expected result.
+    </p>
+    <ol>
+      <li>in modern browsers just open a new tab and enter <i>http://localhost:8080/ngdemo/web/dummy</i> <b>or</b></li>
+      <li>run the script <i>../test_backend.sh</i>, <b>or</b></li>
+      <li>execute curl directly from the command line:<i>curl -i -X GET -H 'Content-Type: application/json' http://localhost:8080/ngdemo/web/dummy </i><b>or</b></li>
+    </ol>
+    <p>Maybe you just forgot to start the backend REST Web Service? <i>../start_backend_java_backend.sh</i></p>
+    All of the above results should contain:
+    <div>
+      <b>{"id":0,"firstName":"JonFromREST","lastName":"DoeFromREST"}</b>
+    </div>
 </div>
