@@ -5,8 +5,11 @@ var express = require('express');
 var app = express();
 app.use(express.bodyParser());
 
-var MY_PORT = 4730;
+/* we'll use the same port as tomcat... */
+var MY_PORT = 8080; // default: 4730
 
+
+/* init users... ------------------------------------- */
 var users = [];
 var numberOfUsers = 10;
 for (var i = 1; i <= numberOfUsers; i++) {
@@ -14,20 +17,23 @@ for (var i = 1; i <= numberOfUsers; i++) {
   users.push(user);
 };
 
+
+
 /* REST API =========================================== */
+var baseUrl = '/ngdemo/web';
 
 /* GET ALL -------------------------------------------- */
-app.get('/users', function(req, res) {
+app.get(baseUrl + '/users', function(req, res) {
 	res.json(users);
 });
 
 /* GET Dummy ------------------------------------------ */
-app.get('/user', function(req, res) {
+app.get(baseUrl + '/dummy', function(req, res) {
   res.json(users[0]);
 });
 
 /* GET By Id ------------------------------------------ */
-app.get('/user/:id', function(req, res) {
+app.get(baseUrl + '/users/:id', function(req, res) {
   if(users.length <= req.params.id || req.params.id < 0) {
     res.statusCode = 404;
     return res.send('Error 404: No user found');
@@ -36,8 +42,9 @@ app.get('/user/:id', function(req, res) {
   res.json(users[req.params.id]);
 });
 
+
 /* POST Create ---------------------------------------- */
-app.post('/user', function(req, res) {
+app.post(baseUrl + '/users', function(req, res) {
   if(!req.body.hasOwnProperty('firstName') ||
      !req.body.hasOwnProperty('lastName')) {
     res.statusCode = 400;
@@ -54,9 +61,13 @@ app.post('/user', function(req, res) {
   res.json(newUser);
 });
 
+/* PUT ------------------------------------------------ */
+app.put(baseUrl + '/users', function (req, res) {
+  /* TODO.. */
+});
 
 /* DELETE --------------------------------------------- */
-app.delete('/user/:id', function(req, res) {
+app.delete(baseUrl + '/users/:id', function(req, res) {
   if(users.length <= req.params.id) {
     res.statusCode = 404;
     return res.send('Error 404: No user found');
