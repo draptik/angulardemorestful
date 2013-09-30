@@ -11,9 +11,9 @@ describe('Service: dummyFactory', function () {
     dummyFactory = _dummyFactory_;
   }));
 
-  it('should do something', function () {
-    expect(!!dummyFactory).toBe(true);
-  });
+  // it('should do something', function () {
+  //   expect(!!dummyFactory).toBe(true);
+  // });
 
   // it('should return 42', function () {
   //   expect(dummyFactory.firstName).toBe(42);
