@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('ngdemoApp.dummyCtrl', [])
-.controller('DummyCtrl', function ($scope, dummyFactory) {
+.controller('DummyCtrl', function ($scope, $log, dummyFactory) {
+  $log.log('DummyCtrl loaded...');
+
   $scope.bla = 'bla from controller';
-  $scope.foo = dummyFactory.firstName;
+
+  dummyFactory.query({}, function (data) {
+    $scope.foo = data.firstName;
+  });
 });
