@@ -1,0 +1,9 @@
+{
+  "name": "js-node-backend",
+  "version": "0.0.1",
+  "description": "simple REST backend",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~3.4.0"
+  }
+}
