@@ -14,9 +14,11 @@ Run `node app.js` from this folder.
 
 Try the following URLs:
 
+```
 http://localhost:4730/users
 http://localhost:4730/dummy
 http://localhost:4730/users/3
+```
 
 TODO: 
 
