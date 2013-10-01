@@ -43,3 +43,12 @@ git clone git@github.com:draptik/angulardemorestful.git
 cd angulardemorestful
 git checkout -f step5-split-frontend-backend-cors
 ```
+
+- [http://draptik.github.io/blog/2013/10/01/node-dot-js-backend-providing-rest/](http://draptik.github.io/blog/2013/10/01/node-dot-js-backend-providing-rest/)
+
+``` sh
+git clone git@github.com:draptik/angulardemorestful.git
+cd angulardemorestful
+git checkout -f step6-nodejs-backend
+```
+
