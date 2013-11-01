@@ -1,5 +1,4 @@
 
-
 # Node.js backend
 
 ## Installation
@@ -15,9 +14,9 @@ Run `node app.js` from this folder.
 Try the following URLs:
 
 ```
-http://localhost:8080/users
-http://localhost:8080/dummy
-http://localhost:8080/users/3
+http://localhost:8080/ngdemo/web/users
+http://localhost:8080/ngdemo/web/dummy
+http://localhost:8080/ngdemo/web/users/3
 ```
 
 TODO: 
