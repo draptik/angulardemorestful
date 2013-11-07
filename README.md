@@ -52,3 +52,7 @@ cd angulardemorestful
 git checkout -f step6-nodejs-backend
 ```
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/draptik/angulardemorestful/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
