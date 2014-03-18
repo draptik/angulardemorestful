@@ -21,7 +21,7 @@ cd angulardemorestful
 git checkout -f step2-guice
 ```
 
-- [http://draptik.github.io/blog/2013/07/19-unit-testing-restful-services/](http://draptik.github.io/blog/2013/07/19-unit-testing-restful-services/)
+- [http://draptik.github.io/blog/2013/07/19/unit-testing-restful-services/](http://draptik.github.io/blog/2013/07/19-unit-testing-restful-services/)
 
 ``` sh
 git clone git@github.com:draptik/angulardemorestful.git
