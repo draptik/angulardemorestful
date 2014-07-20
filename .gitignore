@@ -12,3 +12,9 @@ backend/java-backend/log/**
 
 # Misc
 .*~
+/backend/dotnet-backend/WebService/*.suo
+/backend/dotnet-backend/WebService/WebService/*.user
+/backend/dotnet-backend/WebService/WebService/obj/Debug
+/backend/dotnet-backend/WebService/WebService/obj/Release
+/backend/dotnet-backend/WebService/WebService/bin
+
