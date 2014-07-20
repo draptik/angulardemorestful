@@ -52,6 +52,13 @@ cd angulardemorestful
 git checkout -f step6-nodejs-backend
 ```
 
+- [http://draptik.github.io/blog/2014/07/18/dot-net-backend-providing-rest/](http://draptik.github.io/blog/2014/07/18/dot-net-backend-providing-rest/)
+
+``` sh
+git clone git@github.com:draptik/angulardemorestful.git
+cd angulardemorestful
+git checkout -f step7-aspnet-webapi-backend
+```
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/draptik/angulardemorestful/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
