@@ -59,7 +59,3 @@ git clone git@github.com:draptik/angulardemorestful.git
 cd angulardemorestful
 git checkout -f step7-aspnet-webapi-backend
 ```
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/draptik/angulardemorestful/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
